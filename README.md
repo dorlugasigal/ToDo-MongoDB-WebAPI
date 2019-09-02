@@ -1,25 +1,37 @@
-# Example: Using MongoDB .NET Driver with .NET Core WebAPI
+# Using MongoDB with .NET Core WebAPI
+this repo is based on this blog post - [http://qappdesign.com/using-mongodb-with-net-core-webapi](http://qappdesign.com/using-mongodb-with-net-core-webapi)
 
-Walkthrough blog post - [http://qappdesign.com/using-mongodb-with-net-core-webapi](http://qappdesign.com/using-mongodb-with-net-core-webapi)
+in this project i tried to implement a dot net core web api project 
+with mongodb database integration
+and tried to cover as many topics of dotnet core
 
-This is the first blog post, presenting the backend associated with a sample application: NotebookApp.
-
-It is a quick walkthrough on using .NET Core 2 to build a Web API layer using MongoDB .NET Driver version 2. All the calls to the database are asynchronous.  
 
 #### Topics Covered
 - Technology stack
 - Configuration model
 - Options model
 - Dependency injection
-- MongoDb – Installation and configuration using MongoDB C# Driver v.2
+- MongoDb – using MongoDB C# Driver v.2
 - Make a full ASP.NET WebApi project, connected async to MongoDB
 - Allowing Cross Domain Calls (CORS)
 - Update entire MongoDB documents
 - Exception management
+- Swagger UI
 
  #### How to run it
  - Download or clone this project locally 
  - Install the tools - see here more details: [http://qappdesign.com/using-mongodb-with-net-core-webapi](http://qappdesign.com/using-mongodb-with-net-core-webapi)
- - Run first the MongoDB server (details in the article)
- - Then in the console, within the current project folder, run the next two commands: `dotnet restore`, and then `dotnet run`
- - The ASP.NET Core WebAPI will run using IIS (default settings: http://localhost:5000)
+ - create a database user with this code:
+ `
+    use admin
+    db.createUser(
+    {
+        user: "admin",
+        pwd: "abc123!",
+        roles: [ { role: "root", db: "admin" } ]
+    }
+    );
+    exit;
+ `
+ - and run the project in Visual Studio
+
